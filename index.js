@@ -179,7 +179,7 @@ function getLastCarInfo(inventory) {
  * it will return `This is a Lincoln Navigator`.
 */
 function getCarInfoById(inventory, id) {
-  for (var i = 0; i < inventory.length; i++) {
+  for (let i = 0; i < inventory.length; i++) {
     if (id === inventory[i].id) {
       return `This is a ${inventory[i].car_make} ${inventory[i].car_model}`
     }
@@ -257,8 +257,15 @@ function getOlderCars(inventory, year) {
  * made by either `Audi` or `Mercedes-Benz` or `Volkswagen` or `BMW`,
  * in the same order as they appear in the original inventory.
 */
-function getGermanCars(/* code here */) {
-  /* code here */
+function getGermanCars(inventory) {
+  let cars = []
+  for (let i = 0; i < inventory.length; i++) {
+    let manu = inventory[i].car_make
+    if (manu === 'Audi' || manu === 'Mercedes-Benz' || manu === 'Volkswagen' || manu === 'BMW') {
+      cars.push(inventory[i])
+    }
+  }
+  return cars
 }
 
 /**
